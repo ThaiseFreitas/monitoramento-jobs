@@ -41,20 +41,24 @@
   <h1>🖥️ MONITORAMENTO DE JOBS</h1>
    <button onclick="atualizarStatus()">Atualizar Jobs</button>
 
-  <div class="job">
+<div class="job" onclick="mostrarLog('JOB001')">
     <p>JOB001 - Processamento Diário</p>
     <p>Status: <span class="status-success">SUCCESS</span></p>
   </div>
 
-  <div class="job">
+  <div class="job" onclick="mostrarLog('JOB002')">
     <p>JOB002 - Carga de Dados</p>
     <p>Status: <span class="status-running">RUNNING</span></p>
   </div>
 
-  <div class="job">
+<div class="job" onclick="mostrarLog('JOB003')">
     <p>JOB003 - Backup</p>
     <p>Status: <span class="status-failed">FAILED</span></p>
   </div>
+
+  <div id="log" style="margin-top:20px; border-top:1px solid #00ff00; padding-top:10px;">
+  <p>Clique em um job para ver o log...</p>
+</div>
 
   <script>
   function atualizarStatus() {
@@ -69,6 +73,9 @@
       job.className = classes[random];
     });
   }
+  
+
+    
 </script>
 
 </body>
