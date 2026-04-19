@@ -3,13 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <title>Monitoramento de Jobs</title>
+
+  <style>
+    body {
+      background-color: black;
+      color: #00ff00;
+      font-family: monospace;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .job {
+      border: 1px solid #00ff00;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    .status-success {
+      color: #00ff00;
+    }
+
+    .status-running {
+      color: yellow;
+    }
+
+    .status-failed {
+      color: red;
+    }
+  </style>
 </head>
 
 <body>
 
-  <h1>Monitoramento de Jobs</h1>
+  <h1>🖥️ MONITORAMENTO DE JOBS</h1>
 
-  <p>Sistema em desenvolvimento...</p>
+  <div class="job">
+    <p>JOB001 - Processamento Diário</p>
+    <p>Status: <span class="status-success">SUCCESS</span></p>
+  </div>
+
+  <div class="job">
+    <p>JOB002 - Carga de Dados</p>
+    <p>Status: <span class="status-running">RUNNING</span></p>
+  </div>
+
+  <div class="job">
+    <p>JOB003 - Backup</p>
+    <p>Status: <span class="status-failed">FAILED</span></p>
+  </div>
 
 </body>
 </html>
