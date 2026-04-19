@@ -13,7 +13,7 @@
     }
 
     h1 {
-      text-align: center;
+           text-align: center;
     }
 
     .job {
@@ -39,6 +39,7 @@
 <body>
 
   <h1>🖥️ MONITORAMENTO DE JOBS</h1>
+   <button onclick="atualizarStatus()">Atualizar Jobs</button>
 
   <div class="job">
     <p>JOB001 - Processamento Diário</p>
@@ -54,6 +55,21 @@
     <p>JOB003 - Backup</p>
     <p>Status: <span class="status-failed">FAILED</span></p>
   </div>
+
+  <script>
+  function atualizarStatus() {
+    const status = ["SUCCESS", "RUNNING", "FAILED"];
+    const classes = ["status-success", "status-running", "status-failed"];
+
+    const jobs = document.querySelectorAll(".job span");
+
+    jobs.forEach(job => {
+      const random = Math.floor(Math.random() * 3);
+      job.textContent = status[random];
+      job.className = classes[random];
+    });
+  }
+</script>
 
 </body>
 </html>
