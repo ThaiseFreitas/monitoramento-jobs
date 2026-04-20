@@ -80,8 +80,19 @@
       job.className = classes[random];
     });
   }
-  
+    function filtrarJobs(valor) {
+  const jobs = document.querySelectorAll(".job");
 
+  jobs.forEach(job => {
+    const texto = job.textContent.toLowerCase();
+
+    if (texto.includes(valor.toLowerCase())) {
+      job.style.display = "block";
+    } else {
+      job.style.display = "none";
+    }
+  });
+}
     
 </script>
 
