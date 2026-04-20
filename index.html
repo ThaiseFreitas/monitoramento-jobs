@@ -80,6 +80,18 @@
       job.className = classes[random];
     });
   }
+    function mostrarLog(job) {
+  const log = document.getElementById("log");
+
+  const logs = {
+    JOB001: "Processamento concluído com sucesso.",
+    JOB002: "Job em execução... carregando dados.",
+    JOB003: "Erro: falha no backup."
+  };
+
+  log.innerHTML = "<p><strong>" + job + ":</strong> " + logs[job] + "</p>";
+}
+    
     function filtrarJobs(valor) {
   const jobs = document.querySelectorAll(".job");
 
