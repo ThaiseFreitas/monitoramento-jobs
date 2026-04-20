@@ -39,7 +39,15 @@
 <body>
 
   <h1>🖥️ MONITORAMENTO DE JOBS</h1>
-   <button onclick="atualizarStatus()">Atualizar Jobs</button>
+  <div class="controls">
+  <button onclick="atualizarStatus()">Atualizar Jobs</button>
+
+  <input 
+    type="text" 
+    placeholder="Buscar job..." 
+    onkeyup="filtrarJobs(this.value)"
+  >
+</div>
 
   <input 
   type="text" 
