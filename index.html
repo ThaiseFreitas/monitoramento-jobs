@@ -71,7 +71,10 @@
   color: black;
   animation: piscar 1s infinite;
 }
-  </style>
+    .job {
+  cursor: pointer;
+}
+      </style>
 </head>
 
 <body>
@@ -102,9 +105,9 @@
     <p>Status: <span class="status-failed">FAILED</span></p>
   </div>
 
-  <div id="log" style="margin-top:20px; border-top:1px solid #00ff00; padding-top:10px;">
+  <div id="log" style="margin-top:20px; border-top:1px solid #00ff00; padding-top:10px; background:#001100">
   <p>Clique em um job para ver o log...</p>
-</div
+  </div>
 
   <footer style="margin-top:40px; text-align:center; font-size:14px; opacity:0.7;">
   Desenvolvido por <strong>Thaise Freitas</strong> 💻
@@ -132,7 +135,14 @@
     JOB003: "Erro: falha no backup."
   };
 
-  log.innerHTML = "<p><strong>" + job + ":</strong> " + logs[job] + "</p>";
+log.innerHTML = `<p><strong>${job}</strong></p><p>Carregando log...</p>`;
+
+setTimeout(() => {
+  log.innerHTML = `
+    <p><strong>${job}</strong></p>
+    <p>> ${logs[job]}</p>
+  `;
+}, 800);
 }
     
     function filtrarJobs(valor) {
