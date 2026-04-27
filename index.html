@@ -132,25 +132,33 @@
     mostrarLog(jobSelecionado);
   }
 }
-    function mostrarLog(job) {
-  jobSelecionado = job; // 👈 salva qual foi clicado
+   function mostrarLog(job) {
+  jobSelecionado = job;
 
   const log = document.getElementById("log");
 
-  const logs = {
-    JOB001: "Processamento concluído com sucesso.",
-    JOB002: "Job em execução... carregando dados.",
-    JOB003: "Erro: falha no backup."
-  };
+  // pega o elemento do job clicado
+  const jobElement = document.querySelector(`[onclick="mostrarLog('${job}')"]`);
+  const status = jobElement.querySelector("span").textContent;
 
- log.innerHTML = `<p><strong>${job}</strong></p><p>Carregando log...</p>`;
+  let mensagem = "";
 
-setTimeout(() => {
-  log.innerHTML = `
-    <p><strong>${job}</strong></p>
-    <p>> ${logs[job]}</p>
-  `;
-}, 800);
+  if (status === "SUCCESS") {
+    mensagem = "Processamento concluído com sucesso.";
+  } else if (status === "RUNNING") {
+    mensagem = "Job em execução... carregando dados.";
+  } else if (status === "FAILED") {
+    mensagem = "Erro: falha no processamento.";
+  }
+
+  log.innerHTML = `<p><strong>${job}</strong></p><p>Carregando log...</p>`;
+
+  setTimeout(() => {
+    log.innerHTML = `
+      <p><strong>${job}</strong></p>
+      <p>> ${mensagem}</p>
+    `;
+  }, 800);
 }
     
     function filtrarJobs(valor) {
