@@ -114,19 +114,27 @@
 </footer>
 
   <script>
+    let jobSelecionado = null;
   function atualizarStatus() {
-    const status = ["SUCCESS", "RUNNING", "FAILED"];
-    const classes = ["status-success", "status-running", "status-failed"];
+  const status = ["SUCCESS", "RUNNING", "FAILED"];
+  const classes = ["status-success", "status-running", "status-failed"];
 
-    const jobs = document.querySelectorAll(".job span");
+  const jobs = document.querySelectorAll(".job span");
 
-    jobs.forEach(job => {
-      const random = Math.floor(Math.random() * 3);
-      job.textContent = status[random];
-      job.className = classes[random];
-    });
+  jobs.forEach(job => {
+    const random = Math.floor(Math.random() * 3);
+    job.textContent = status[random];
+    job.className = classes[random];
+  });
+
+  // 👇 ATUALIZA O LOG TAMBÉM
+  if (jobSelecionado) {
+    mostrarLog(jobSelecionado);
   }
+}
     function mostrarLog(job) {
+  jobSelecionado = job; // 👈 salva qual foi clicado
+
   const log = document.getElementById("log");
 
   const logs = {
@@ -135,7 +143,7 @@
     JOB003: "Erro: falha no backup."
   };
 
-log.innerHTML = `<p><strong>${job}</strong></p><p>Carregando log...</p>`;
+ log.innerHTML = `<p><strong>${job}</strong></p><p>Carregando log...</p>`;
 
 setTimeout(() => {
   log.innerHTML = `
